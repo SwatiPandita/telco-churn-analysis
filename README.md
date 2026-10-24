@@ -16,6 +16,8 @@ About 1 in 4 customers leave. Which groups drive that, and where should retentio
 ## Data
 Kaggle: https://www.kaggle.com/datasets/blastchar/telco-customer-churn (IBM sample, 7,043 rows).
 
+To reproduce: download the CSV from Kaggle, save it as data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv, then run python churn_analysis.py
+
 ## Method
 Cleaned data (11 blank TotalCharges values set to 0), calculated churn by segment, ranked drivers by Cramer's V, and sized the worst segment's revenue at risk. Charts are in /dashboard.
 
