@@ -14,7 +14,7 @@ os.makedirs("dashboard", exist_ok=True)
 os.makedirs("data/clean", exist_ok=True)
 
 # ---------- 1. Load and clean (log every step) ----------
-df = pd.read_csv("Data/Raw/archive (4)/WA_Fn-UseC_-Telco-Customer-Churn.csv")
+df = pd.read_csv("data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv")
 n0 = len(df)
 blank = (df["TotalCharges"].astype(str).str.strip() == "").sum()
 df["TotalCharges"] = pd.to_numeric(df["TotalCharges"], errors="coerce").fillna(0)
