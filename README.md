@@ -19,6 +19,19 @@ About 1 in 4 customers leave. Which groups drive that churn, and what should ret
 - Customers without tech support churn at 41.6%, versus 15.2% with it.
 - Estimated annual revenue lost from the worst segment's churners: about 1.2M (monthly charges x 12).
 
+ ## Statistical checks
+- **Is the worst segment really worse?** Month-to-month fiber customers churn at 54.6% (95% CI 52.5% to 56.7%, n=2,128), versus 14.4% for everyone else (95% CI 13.4% to 15.4%, n=4,915). The intervals do not overlap.
+- **Is it just a tenure effect?** No. Within every tenure band, month-to-month customers churn more than customers on longer contracts:
+
+| Tenure band | Longer contract | Month-to-month | Gap (points) |
+|---|---|---|---|
+| 0-12 months | 6.8% | 51.4% | 44.6 |
+| 13-24 months | 5.6% | 37.7% | 32.1 |
+| 25-48 months | 7.7% | 32.9% | 25.2 |
+| 49+ months | 6.5% | 26.0% | 19.5 |
+
+- **Limit:** this controls for tenure only. Price, service mix and customer type could also matter, so the result is still an association, not proof of cause.
+
 ## Recommendations
 1. Offer incentives to move month-to-month customers onto 1-year plans.
 2. Bundle online security and tech support for new fiber customers.
