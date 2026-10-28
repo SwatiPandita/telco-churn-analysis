@@ -48,6 +48,8 @@ About 1 in 4 customers leave. Which groups drive that churn, and what should ret
 - Python (pandas, scipy, matplotlib): cleaned the data (11 blank TotalCharges values set to 0), calculated churn by segment, ranked drivers by Cramer's V, and sized the worst segment's revenue at risk.
 - Power BI: 3-page dashboard (overview, drivers, actions).
 
+- Python (scikit-learn): cross-validated logistic regression and gradient boosting to predict churn and rank customers by risk (`churn_model.py`).
+
 ## Data
 Kaggle: https://www.kaggle.com/datasets/blastchar/telco-customer-churn (IBM sample, 7,043 rows).
 
