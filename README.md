@@ -39,6 +39,8 @@ About 1 in 4 customers leave. Which groups drive that churn, and what should ret
 - **Scenario (assumption, not a result):** the churners in the top 20% group represent about 924,550 in annual revenue. If a retention offer saved 10% / 20% / 30% of them, that is about 92,455 / 184,910 / 277,365 per year. The real save rate has to come from an A/B test.
 - **Limit:** one snapshot of one company, trained and tested on the same dataset, and not deployed. The odds ratio is model-dependent and is still an association, not proof of cause.
 
+![Who to call first](gains_chart%20(1).png)
+
 ## Recommendations
 1. Offer incentives to move month-to-month customers onto 1-year plans.
 2. Bundle online security and tech support for new fiber customers.
