@@ -31,6 +31,13 @@ About 1 in 4 customers leave. Which groups drive that churn, and what should ret
 | 49+ months | 6.5% | 26.0% | 19.5 |
 
 - **Limit:** this controls for tenure only. Price, service mix and customer type could also matter, so the result is still an association, not proof of cause.
+  
+## Predictive model and targeting
+- **Model:** logistic regression and gradient boosting, evaluated with 5-fold cross-validation (every prediction is on customers the model has not seen). Cross-validated AUC: 0.845 (logistic regression) and 0.834 (gradient boosting).
+- **Adjusted contract effect:** holding all other columns constant, month-to-month customers have about 3.8x the odds of churning compared with two-year customers.
+- **Who to call first:** ranking customers by predicted risk, the top 10% contains 29% of all churners (2.9x lift), the top 20% contains 51% (2.5x), and the top 30% contains 67% (2.2x).
+- **Scenario (assumption, not a result):** the churners in the top 20% group represent about 924,550 in annual revenue. If a retention offer saved 10% / 20% / 30% of them, that is about 92,455 / 184,910 / 277,365 per year. The real save rate has to come from an A/B test.
+- **Limit:** one snapshot of one company, trained and tested on the same dataset, and not deployed. The odds ratio is model-dependent and is still an association, not proof of cause.
 
 ## Recommendations
 1. Offer incentives to move month-to-month customers onto 1-year plans.
