@@ -1,0 +1,5 @@
+   # Raw data is downloaded from Kaggle, not committed
+   data/
+   __pycache__/
+   .ipynb_checkpoints/
+   .DS_Store
