@@ -4,7 +4,7 @@
 
 **At a glance:** 7,043 customers · 26.5% churn · Python (pandas, scipy, scikit-learn, statsmodels) + Power BI · cross-validated AUC 0.845 · the top 20% of customers by predicted risk contains 51% of all churners.
 
-**Dashboard:** 3-page Power BI report (screenshots below)
+**Dashboard:** 3-page Power BI report. Open [dashboard/telco_churn_dashboard.pbix](dashboard/telco_churn_dashboard.pbix) in Power BI Desktop (free), or see the screenshots below.
 
 [![Dashboard page 1](images/dashboard_page1.png)](images/dashboard_page1.png)
 [![Dashboard page 2](images/dashboard_page2.png)](images/dashboard_page2.png)
