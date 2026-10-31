@@ -1,5 +1,5 @@
 """
-Project 6: Customer Churn Drivers (Telco)
+Telco churn drivers: segments, effect sizes and revenue at risk
 Run: python churn_analysis.py
 Needs: pip install pandas numpy scipy matplotlib
 Put the Kaggle CSV at data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
@@ -10,7 +10,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.stats import chi2_contingency
 
-os.makedirs("dashboard", exist_ok=True)
+os.makedirs("images/charts", exist_ok=True)
 os.makedirs("data/clean", exist_ok=True)
 
 # ---------- 1. Load and clean (log every step) ----------
@@ -49,7 +49,7 @@ def churn_chart(col):
     ax.set_xlabel("Churn rate, %")
     ax.set_title(f"Churn by {col} (dashed = average {overall:.0%})", loc="left")
     plt.tight_layout()
-    plt.savefig(f"dashboard/churn_by_{col}.png", dpi=160)
+    plt.savefig(f"images/charts/churn_by_{col}.png", dpi=160)
     plt.close()
 
 for c in ["Contract", "tenure_band", "InternetService", "PaymentMethod", "TechSupport"]:
@@ -68,4 +68,4 @@ print(f"  annual revenue lost from this segment's churners: {at_risk:,.0f}")
 
 # ---------- 5. Export clean file for Power BI ----------
 df.to_csv("data/clean/telco_clean.csv", index=False)
-print("\nSaved charts to dashboard/ and clean data to data/clean/telco_clean.csv")
+print("\nSaved charts to images/charts/ and clean data to data/clean/telco_clean.csv")

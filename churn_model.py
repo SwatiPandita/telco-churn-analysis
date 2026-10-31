@@ -1,10 +1,12 @@
 """
-Project 6 upgrade: can we predict who will churn, and who should retention call first?
+Telco churn: can we predict who will churn, and who should retention call first?
 Run AFTER churn_analysis.py, in the same folder (or the same Colab notebook).
-Needs: pandas numpy scikit-learn   (pip install scikit-learn)
+Needs: pip install -r requirements.txt
 """
+import os
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.linear_model import LogisticRegression
@@ -71,4 +73,30 @@ print(f"   annual revenue of the churners inside this group: {rev_at_risk:,.0f}"
 print("   ASSUMPTION (not a result): a retention offer saves X% of those churners")
 for s in (0.10, 0.20, 0.30):
     print(f"   save {s:.0%} -> about {rev_at_risk * s:,.0f} per year retained")
-print("   The true save rate must come from an A/B test (Project 8).")
+print("   The true save rate must come from an A/B test.")
+
+# ---------- 5. Save the "who to call first" chart ----------
+os.makedirs("images", exist_ok=True)
+frac = np.arange(1, len(d) + 1) / len(d) * 100
+reached = d["churn"].cumsum().values / total_churners * 100
+fig, ax = plt.subplots(figsize=(7.5, 4.8))
+ax.plot(frac, reached, color="#DC2626", lw=3, label="Model: customers ranked by predicted risk")
+ax.plot([0, 100], [0, 100], color="#94A3B8", ls="--", lw=2, label="Random calling")
+lines = []
+for pct in (10, 20, 30):
+    k = int(len(d) * pct / 100)
+    y_pt = d.head(k)["churn"].sum() / total_churners * 100
+    ax.scatter([pct], [y_pt], color="#14213D", zorder=3)
+    lines.append(f"Top {pct}% of customers -> {y_pt:.0f}% of churners")
+ax.text(52, 36, "\n".join(lines), fontsize=10, va="center", linespacing=1.8,
+        bbox=dict(boxstyle="round,pad=0.5", facecolor="white", edgecolor="#CBD5E1"))
+ax.set_xlim(0, 100); ax.set_ylim(0, 100)
+ax.set_xlabel("% of customers contacted (highest risk first)")
+ax.set_ylabel("% of all churners reached")
+ax.set_title("Who to call first: model vs random", loc="left", fontweight="bold")
+ax.spines[["top", "right"]].set_visible(False)
+ax.legend(loc="lower right", frameon=False, bbox_to_anchor=(1, 0.0))
+plt.tight_layout()
+plt.savefig("images/gains_chart.png", dpi=150)
+plt.close()
+print("\nSaved images/gains_chart.png")
